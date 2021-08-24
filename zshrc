@@ -42,6 +42,7 @@ setopt hash_cmds
 #
 ###############################################################################
 alias ll="ls -lha"
+alias k="kubectl"
 alias upper="tr '[:lower:]' '[:upper:]'"
 alias gcmc-curl="curl -s -H 'Authorization: Token 71718056f712b21a0297D846c129D07848d359a2'"
 #if [ -x "/usr/local/bin/vim" -o -x "/usr/pkg/bin/vim" ]; then
