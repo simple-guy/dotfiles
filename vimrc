@@ -27,6 +27,7 @@ au! BufRead,BufNewFile *.tf set filetype=tf
 autocmd FileType tf     set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 au! BufRead,BufNewFile *.j2 set filetype=jinja
+au BufReadPost Jenkins* set syntax=groovy
 " -- show rule on right
 set colorcolumn=80
 set ruler
