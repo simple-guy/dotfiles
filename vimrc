@@ -10,24 +10,23 @@ set novisualbell
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 "set smartindent
 "set smarttab
-" удалить лишние пробелы в конце строки перед сохранением
+" remove extra spaces in end of line before saving
 autocmd BufWritePre * :%s/\s\+$//e
 
-" не заменять 'tab' на 'space' в Makefile-ах
-autocmd FileType make   set noexpandtab
+au! BufRead,BufNewFile *.json set filetype=json
+au! BufRead,BufNewFile *.tf set filetype=tf
+au! BufRead,BufNewFile *.j2 set filetype=jinja
 
+" do not convert tab to space for Makefiles
+autocmd FileType make   set noexpandtab
 autocmd FileType ruby   set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType yaml   set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType python set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-
-au! BufRead,BufNewFile *.json set filetype=json
 autocmd FileType json   set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-
-au! BufRead,BufNewFile *.tf set filetype=tf
 autocmd FileType tf     set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
-au! BufRead,BufNewFile *.j2 set filetype=jinja
 au BufReadPost Jenkins* set syntax=groovy
+
 " -- show rule on right
 set colorcolumn=80
 set ruler
@@ -45,7 +44,7 @@ syntax on
 "set iskeyword=@,48-57,_,192-255
 
 " ----- Mapping ------
-" автоскобки
+" auto close braces when open
 "imap {<CR> {<CR>}<Esc>O
 "imap [ []<LEFT>
 "imap ( ()<LEFT>
@@ -53,9 +52,9 @@ syntax on
 " ----- Search -----
 set showmatch
 set incsearch
-set smartcase "Игнорировать регистр при поиске, если в искомом выражении нет символов верхнего регистра
+set smartcase
 
-" автодополнение по Tab
+" autocompletion by tab
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -75,7 +74,7 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 "    set diffopt+=iwhite
 "endif
 
-" сокращения
+" reductions
 "ab <AB> <ABREVIATURE>
 
 " skeletons
