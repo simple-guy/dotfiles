@@ -81,6 +81,7 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 au BufNewFile *.py 0r ~/.vim/python.skel
 au BufNewFile *.sh 0r ~/.vim/shell.skel
 au BufNewFile *.rb 0r ~/.vim/ruby.skel
+au BufNewFile Makefile 0r ~/.vim/makefile.skel
 " au BufNewFile *.xml 0r ~/.vim/xml.skel | let IndentStyle = "xml"
 " au BufNewFile *.html 0r ~/.vim/html.skel | let IndentStyle = "html"
 
